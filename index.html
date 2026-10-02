@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DevFolio Builder — Developer Portfolio Builder</title>
+  <meta name="description" content="Build, customize and export a professional developer portfolio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-code"></i>
+      </div>
+      <div>
+        <h1>DevFolio</h1>
+        <span>Portfolio Builder</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-secondary preview-toggle" id="previewModeBtn">
+        <i class="fa-solid fa-eye"></i>
+        <span>Preview</span>
+      </button>
+
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- EDITOR -->
+    <aside class="editor-panel" id="editorPanel">
+
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">WORKSPACE</span>
+          <h2>Build your portfolio</h2>
+        </div>
+        <span class="autosave">
+          <i class="fa-solid fa-circle"></i>
+          Auto preview
+        </span>
+      </div>
+
+      <!-- Personal Information -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <h3>Personal Information</h3>
+            <p>Tell visitors who you are.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="fullName">Full Name <span>*</span></label>
+            <input id="fullName" type="text" placeholder="Alex Johnson" required>
+            <small class="error-message" data-error="fullName"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="professionalTitle">Professional Title <span>*</span></label>
+            <input id="professionalTitle" type="text" placeholder="Frontend Developer" required>
+            <small class="error-message" data-error="professionalTitle"></small>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="profilePhoto">Profile Photo</label>
+            <input id="profilePhoto"
+                   type="file"
+                   accept="image/*">
+            <small class="error-message" data-error="profilePhoto"></small>
+            <small class="photo-help">Upload JPG, PNG, WEBP or another image file.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email <span>*</span></label>
+            <input id="email" type="email" placeholder="alex@example.com">
+            <small class="error-message" data-error="email"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="+92 300 1234567">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="Pakistan">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="shortBio">Short Bio</label>
+            <textarea id="shortBio" rows="3"
+              placeholder="Building modern and responsive web experiences."></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="aboutMe">About Me</label>
+            <textarea id="aboutMe" rows="5"
+              placeholder="Write a detailed introduction about yourself, your experience and your goals."></textarea>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Social Links -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-share-nodes"></i>
+          </div>
+          <div>
+            <h3>Social Links</h3>
+            <p>Connect your professional profiles.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="github">GitHub</label>
+            <div class="input-icon">
+              <i class="fa-brands fa-github"></i>
+              <input id="github" type="url" placeholder="https://github.com/username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn</label>
+            <div class="input-icon">
+              <i class="fa-brands fa-linkedin"></i>
+              <input id="linkedin" type="url" placeholder="https://linkedin.com/in/username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="twitter">Twitter / X</label>
+            <div class="input-icon">
+              <i class="fa-brands fa-x-twitter"></i>
+              <input id="twitter" type="url" placeholder="https://x.com/username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="website">Personal Website</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-globe"></i>
+              <input id="website" type="url" placeholder="https://yourwebsite.com">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h3>Skills</h3>
+            <p>Add technologies you work with.</p>
+          </div>
+        </div>
+
+        <div class="skill-input-row">
+          <input id="skillInput" type="text" placeholder="e.g. JavaScript">
+          <button class="btn btn-primary" id="addSkillBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add
+          </button>
+        </div>
+
+        <div class="tags-container" id="skillsContainer">
+          <div class="empty-state small">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>No skills added yet.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div>
+            <h3>Experience</h3>
+            <p>Show your professional journey.</p>
+          </div>
+        </div>
+
+        <div id="experienceEditor" class="entry-list">
+          <div class="empty-state">
+            <i class="fa-solid fa-briefcase"></i>
+            <strong>No experience added</strong>
+            <span>Add your first professional experience.</span>
+          </div>
+        </div>
+
+        <button class="btn btn-outline add-entry-btn" id="addExperienceBtn">
+          <i class="fa-solid fa-plus"></i>
+          Add Experience
+        </button>
+      </section>
+
+      <!-- Education -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div>
+            <h3>Education</h3>
+            <p>Add your academic background.</p>
+          </div>
+        </div>
+
+        <div id="educationEditor" class="entry-list">
+          <div class="empty-state">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <strong>No education added</strong>
+            <span>Add your academic qualification.</span>
+          </div>
+        </div>
+
+        <button class="btn btn-outline add-entry-btn" id="addEducationBtn">
+          <i class="fa-solid fa-plus"></i>
+          Add Education
+        </button>
+      </section>
+
+      <!-- Projects -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <h3>Projects</h3>
+            <p>Showcase your best work.</p>
+          </div>
+        </div>
+
+        <div id="projectsEditor" class="entry-list">
+          <div class="empty-state">
+            <i class="fa-solid fa-folder-open"></i>
+            <strong>No projects added</strong>
+            <span>Add a project to showcase your work.</span>
+          </div>
+        </div>
+
+        <button class="btn btn-outline add-entry-btn" id="addProjectBtn">
+          <i class="fa-solid fa-plus"></i>
+          Add Project
+        </button>
+      </section>
+
+      <!-- Contact -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <h3>Contact Information</h3>
+            <p>Make it easy for people to reach you.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="contactEmail">Contact Email</label>
+            <input id="contactEmail" type="email" placeholder="hello@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="contactPhone">Contact Phone</label>
+            <input id="contactPhone" type="tel" placeholder="+92 300 1234567">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="contactLocation">Contact Location</label>
+            <input id="contactLocation" type="text" placeholder="Pakistan">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Customization -->
+      <section class="editor-section">
+        <div class="section-title">
+          <div class="section-icon">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <div>
+            <h3>Customization</h3>
+            <p>Make your portfolio yours.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="layoutSelect">Portfolio Layout</label>
+            <select id="layoutSelect">
+              <option value="modern">Modern</option>
+              <option value="minimal">Minimal</option>
+              <option value="professional">Professional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fontSelect">Font Style</label>
+            <select id="fontSelect">
+              <option value="Inter">Inter</option>
+              <option value="Poppins">Poppins</option>
+              <option value="Roboto">Roboto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="accentColor">Accent Color</label>
+            <div class="color-control">
+              <input id="accentColor" type="color" value="#6366f1">
+              <span id="accentColorValue">#6366F1</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="theme-selector">
+          <span class="theme-label">Preview Theme</span>
+
+          <div class="theme-options">
+            <button class="theme-option active" data-theme="light">
+              <span class="theme-swatch light-swatch"></span>
+              Light
+            </button>
+
+            <button class="theme-option" data-theme="dark">
+              <span class="theme-swatch dark-swatch"></span>
+              Dark
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="editor-actions">
+
+        <button class="btn btn-primary btn-large" id="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+          Save Portfolio
+        </button>
+
+        <button class="btn btn-secondary btn-large" id="loadBtn">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+          Load Portfolio
+        </button>
+
+        <button class="btn btn-secondary btn-large" id="downloadBtn">
+          <i class="fa-solid fa-download"></i>
+          Download Portfolio
+        </button>
+
+        <button class="btn btn-secondary btn-large" id="printBtn">
+          <i class="fa-solid fa-print"></i>
+          Print / PDF
+        </button>
+
+        <button class="btn btn-danger btn-large" id="resetBtn">
+          <i class="fa-solid fa-trash"></i>
+          Reset
+        </button>
+
+      </section>
+
+    </aside>
+
+    <!-- PREVIEW -->
+    <section class="preview-panel" id="previewPanel">
+
+      <div class="preview-toolbar">
+        <div>
+          <span class="eyebrow">LIVE PREVIEW</span>
+          <h2>Your Portfolio</h2>
+        </div>
+
+        <div class="preview-actions">
+          <span class="live-indicator">
+            <span></span>
+            Live
+          </span>
+
+          <button class="icon-btn" id="fullscreenBtn" title="Fullscreen preview">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="portfolio-frame">
+
+        <div class="portfolio" id="portfolioPreview">
+
+          <!-- HERO -->
+          <section class="portfolio-hero">
+
+            <div class="hero-image-wrap">
+              <img id="previewPhoto"
+                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+                   alt="Profile">
+            </div>
+
+            <div class="hero-content">
+
+              <span class="hello-label">HELLO, I'M</span>
+
+              <h1 id="previewName">Your Name</h1>
+
+              <h2 id="previewTitle">Frontend Developer</h2>
+
+              <p id="previewShortBio">
+                Building modern and responsive web experiences.
+              </p>
+
+              <div class="social-links" id="previewSocials"></div>
+
+              <a href="#contact"
+                 class="portfolio-btn primary"
+                 id="heroContactBtn">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Me
+              </a>
+
+            </div>
+
+          </section>
+
+          <!-- ABOUT -->
+          <section class="portfolio-section about-section" id="about">
+            <div class="portfolio-section-heading">
+              <span>01</span>
+              <div>
+                <small>GET TO KNOW ME</small>
+                <h2>About Me</h2>
+              </div>
+            </div>
+
+            <p id="previewAbout">
+              Tell visitors about your background, interests, experience and professional goals.
+            </p>
+          </section>
+
+          <!-- SKILLS -->
+          <section class="portfolio-section" id="skills">
+            <div class="portfolio-section-heading">
+              <span>02</span>
+              <div>
+                <small>WHAT I WORK WITH</small>
+                <h2>Skills</h2>
+              </div>
+            </div>
+
+            <div class="portfolio-skills" id="previewSkills"></div>
+          </section>
+
+          <!-- EXPERIENCE -->
+          <section class="portfolio-section" id="experience">
+            <div class="portfolio-section-heading">
+              <span>03</span>
+              <div>
+                <small>MY JOURNEY</small>
+                <h2>Experience</h2>
+              </div>
+            </div>
+
+            <div class="portfolio-timeline" id="previewExperience"></div>
+          </section>
+
+          <!-- EDUCATION -->
+          <section class="portfolio-section" id="education">
+            <div class="portfolio-section-heading">
+              <span>04</span>
+              <div>
+                <small>MY EDUCATION</small>
+                <h2>Education</h2>
+              </div>
+            </div>
+
+            <div class="portfolio-education" id="previewEducation"></div>
+          </section>
+
+          <!-- PROJECTS -->
+          <section class="portfolio-section" id="projects">
+            <div class="portfolio-section-heading">
+              <span>05</span>
+              <div>
+                <small>FEATURED WORK</small>
+                <h2>Projects</h2>
+              </div>
+            </div>
+
+            <div class="portfolio-projects" id="previewProjects"></div>
+          </section>
+
+          <!-- CONTACT -->
+          <section class="portfolio-contact" id="contact">
+
+            <div class="portfolio-section-heading">
+              <span>06</span>
+              <div>
+                <small>LET'S CONNECT</small>
+                <h2>Get In Touch</h2>
+              </div>
+            </div>
+
+            <p>
+              Have a project, opportunity or idea?
+              Feel free to reach out.
+            </p>
+
+            <div class="contact-grid" id="previewContact"></div>
+
+            <div class="contact-socials" id="previewContactSocials"></div>
+
+          </section>
+
+          <footer class="portfolio-footer">
+            <p>
+              Built with
+              <i class="fa-solid fa-code"></i>
+              using DevFolio Builder
+            </p>
+            <span id="previewFooterName">Your Name</span>
+          </footer>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ENTRY MODAL -->
+  <div class="modal-overlay" id="entryModal">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow" id="modalEyebrow">EDITOR</span>
+          <h2 id="modalTitle">Add Experience</h2>
+        </div>
+
+        <button class="modal-close" id="modalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="entryForm">
+
+        <div id="experienceFields" class="modal-fields">
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="expJobTitle">Job Title *</label>
+              <input id="expJobTitle" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="expCompany">Company *</label>
+              <input id="expCompany" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="expStart">Start Date</label>
+              <input id="expStart" type="text" placeholder="Jan 2023">
+            </div>
+
+            <div class="form-group">
+              <label for="expEnd">End Date</label>
+              <input id="expEnd" type="text" placeholder="Present">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="expDescription">Description</label>
+              <textarea id="expDescription" rows="5"></textarea>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="educationFields" class="modal-fields hidden">
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="eduDegree">Degree *</label>
+              <input id="eduDegree" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="eduInstitution">Institution *</label>
+              <input id="eduInstitution" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="eduStart">Start Year</label>
+              <input id="eduStart" type="text" placeholder="2020">
+            </div>
+
+            <div class="form-group">
+              <label for="eduEnd">End Year</label>
+              <input id="eduEnd" type="text" placeholder="2024">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="eduDescription">Description</label>
+              <textarea id="eduDescription" rows="5"></textarea>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="projectFields" class="modal-fields hidden">
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label for="projectName">Project Name *</label>
+              <input id="projectName" type="text">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectImage">Project Image URL</label>
+              <input id="projectImage" type="url"
+                     placeholder="https://example.com/project.jpg">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectDescription">Description</label>
+              <textarea id="projectDescription" rows="4"></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectTechnologies">
+                Technologies
+              </label>
+              <input id="projectTechnologies"
+                     type="text"
+                     placeholder="HTML, CSS, JavaScript">
+            </div>
+
+            <div class="form-group">
+              <label for="projectLive">Live Demo URL</label>
+              <input id="projectLive" type="url"
+                     placeholder="https://example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="projectGithub">GitHub URL</label>
+              <input id="projectGithub" type="url"
+                     placeholder="https://github.com/...">
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelModal">
+            Cancel
+          </button>
+
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-check"></i>
+            Save Entry
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- TOASTS -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
